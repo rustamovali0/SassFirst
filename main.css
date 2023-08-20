@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.boxModel, body .container header .boxes .boxLast, body .container header .boxes .box {
+  height: 5vh;
+  width: 10vw;
+  background-color: #333;
+  color: rgb(190, 190, 0);
+  text-align: center;
+  border-radius: 6px;
+  line-height: 4vh;
+  margin: 0px 10px;
+}
+
+.boxModelGrid, body .container .parent .child {
+  height: 200px;
+  background-color: #4cfff0;
+  color: #333;
+  text-align: center;
+  border-radius: 18px;
+  line-height: 200px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+body {
+  background-color: #ccc;
+}
+body .container {
+  height: 100vh;
+  background-color: #333;
+}
+body .container header {
+  height: 10vh;
+  width: 100%;
+  background-color: rgb(190, 190, 0);
+}
+body .container header ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+body .container header ul li {
+  list-style: none;
+}
+body .container header ul li a {
+  text-decoration: none;
+  padding: 20px;
+  font-size: 24px;
+  transition: 0.5s ease-in-out;
+  color: #333;
+}
+body .container header ul li a:hover {
+  color: #4cfff0;
+}
+body .container header .boxes {
+  height: 100%;
+  background-color: #4cfff0;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body .container header .boxes .box {
+  border-width: 3px;
+  border-style: solid;
+  border-color: blue;
+}
+body .container header .boxes .boxLast {
+  border-width: 8px;
+  border-style: dashed;
+  border-color: rgb(255, 0, 93);
+}
+body .container .parent {
+  display: grid;
+  gap: 1.5rem;
+  margin: 200px 100px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}/*# sourceMappingURL=main.css.map */

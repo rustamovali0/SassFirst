@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$bColor: #ccc;
+$container: #333;
+$header: rgb(190, 190, 0);
+$box: #4cfff0;
+$border: rgb(120, 255, 17);
+
+// EXTEND
+.boxModel {
+  height: 5vh;
+  width: 10vw;
+  background-color: $container;
+  color: $header;
+  text-align: center;
+  border-radius: 6px;
+  line-height: 4vh;
+  margin: 0px 10px;
+}
+.boxModelGrid{
+    height: 200px;
+    background-color: $box;
+    color: $container;
+    text-align: center;
+    border-radius: 18px;
+    line-height: 200px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+// MIXIN
+@mixin borderStyle($width, $style, $color) {
+  border-width: $width;
+  border-style: $style;
+  border-color: $color;
+}
+
+@mixin flexStyle($value){
+    display:flex;
+    align-items: center;
+    justify-content: $value;
+}
+
+@mixin gridStyle($value){
+  display: grid;
+  gap: 1.5rem;
+  margin: 200px 100px;
+  grid-template-columns: repeat(auto-fit,minmax($value,1fr));
+}
+
+
+body {
+  background-color: $bColor;
+
+  .container {
+    height: 100vh;
+    background-color: $container;
+
+    header {
+      height: 10vh;
+      width: 100%;
+      background-color: $header;
+
+      ul {
+        height: 100%;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-around;
+        @include flexStyle(space-around);
+
+        li {
+          list-style: none;
+
+          a {
+            text-decoration: none;
+            padding: 20px;
+            font-size: 24px;
+            transition: 0.5s ease-in-out;
+            color: $container;
+
+            &:hover {
+              color: $box;
+            }
+          }
+        }
+      }
+
+      .boxes {
+        height: 100%;
+        background-color: $box;
+        margin-top: 40px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+        @include flexStyle(space-between);
+
+
+        .box{
+          @extend .boxModel;
+          @include borderStyle(3px,solid,blue)
+        }
+
+        .boxLast{
+            @extend .boxModel;
+            @include borderStyle(8px,dashed,rgb(255, 0, 93)) 
+        }
+      }
+    }
+
+
+    .parent{
+        @include gridStyle(300px);
+
+        .child{
+         @extend .boxModelGrid;
+        }
+    }
+  }
+}
+
+
+
